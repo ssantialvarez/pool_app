@@ -1,5 +1,5 @@
 class PlayersController < ApplicationController
-  # include Secured
+  before_action :authorize
   def index
     render json: "All players."
   end

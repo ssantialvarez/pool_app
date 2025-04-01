@@ -28,5 +28,10 @@ module PoolApp
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    config.auth0 = ActiveSupport::OrderedOptions.new
+    AUTH0_CONFIG = Rails.application.config_for(:auth0)
+    config.auth0.domain = AUTH0_CONFIG["auth0_domain"]
+    config.auth0.audience = AUTH0_CONFIG["auth0_audience"]
   end
 end
